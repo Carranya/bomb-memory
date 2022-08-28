@@ -2,26 +2,27 @@
 <html lang="de">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width; initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Button Puzzle</title>
 </head>
 <body>
     <form action="game.php" method="post">
         <?php
 
-            $numbers = array();
-            for($i=0; $i<9; $i++)
+            file_put_contents('numbers.php', '<?php ');
+
+            for($i=0; $i<81; $i++)
             {
-                for($j=0; $j<9; $j++)
-                {
+                
                     $rand = random_int(0,9);
-                    echo "<button name='tile$i$j' value='$rand'>$rand</button>";
-                    $numbers[$i][$j] = $rand;
-                }
-                echo "<br>";
+                    $input = "$" . "tile[$i]=$rand;";
+                    file_put_contents('numbers.php', $input, FILE_APPEND);  
             }
-            echo "<input type='hidden' name='numbers' value='$numbers'>";
+
+            /* file_put_contents('numbers.php', "?>", FILE_APPEND); */
+
         ?>
+        <input type='submit' value='Start'>
     </form>
 </body>
 </html>
