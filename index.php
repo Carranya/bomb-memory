@@ -4,8 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bomb Memory</title>
+    <style>
+        .main img
+        {
+            width: 80px;
+            height: 80px;
+        }
+    </style>
 </head>
 <body>
+<div class="main">
 <?php
     include "game2.php";
 
@@ -13,10 +21,12 @@
     {
         for($cols=0; $cols<5; $cols++)
         {
-            echo "<button name='choosen' value='" . $card[$rows][$cols] . "' style='width: 50px; height: 50px'>" . $card[$rows][$cols] . "</button>";
+            $image = $card[$rows][$cols] . ".jpg";
+            echo "<button name='choosen' value='" . $card[$rows][$cols] . "' style='width: 100px; height: 100px'><img src='img/" . $image . "'></img></button>";
         }
         echo "<br>";
     }
 ?>
+</div>
 </body>
 </html>
