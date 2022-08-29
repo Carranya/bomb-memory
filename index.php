@@ -3,26 +3,20 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Button Puzzle</title>
+    <title>Bomb Memory</title>
 </head>
 <body>
-    <form action="game.php" method="post">
-        <?php
+<?php
+    include "game2.php";
 
-            file_put_contents('numbers.php', '<?php ');
-
-            for($i=0; $i<81; $i++)
-            {
-                
-                    $rand = random_int(0,9);
-                    $input = "$" . "tile[$i]=$rand;";
-                    file_put_contents('numbers.php', $input, FILE_APPEND);  
-            }
-
-            /* file_put_contents('numbers.php', "?>", FILE_APPEND); */
-
-        ?>
-        <input type='submit' value='Start'>
-    </form>
+    for($rows=0; $rows<5; $rows++)
+    {
+        for($cols=0; $cols<5; $cols++)
+        {
+            echo "<button name='choosen' value='" . $card[$rows][$cols] . "' style='width: 50px; height: 50px'>" . $card[$rows][$cols] . "</button>";
+        }
+        echo "<br>";
+    }
+?>
 </body>
 </html>

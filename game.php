@@ -1,45 +1,27 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Button Puzzle</title>
-</head>
-<body>
-    <form action='game.php' method='post'>
-
 <?php
 
-include "numbers.php";
-
-
-if(isset($_POST['feld']))
-{
-    $feld = $_POST['feld'];
-    $tile[$feld] = "_";
-    $input = "$" . "tile[" . $feld . "]='_';";
-
-    file_put_contents("numbers.php", $input, FILE_APPEND);
-}
-
-$j=0;
-
-for($i=0; $i<81; $i++)
-{
-    if($j >=9)
-    {
-        $j=0;
-        echo "<br>";
-    }
-
-     echo "<button name='feld' value='$i'>$tile[$i]</button>";
-    $j++;
-}
-
-
-
-
-?>
-</form>
-</body>
-</html>
+$card[1] = 1;
+$card[2] = 1;
+$card[3] = 2;
+$card[4] = 2;
+$card[5] = 3;
+$card[6] = 3;
+$card[7] = 4;
+$card[8] = 4;
+$card[9] = 5;
+$card[10] = 5;
+$card[11] = 6;
+$card[12] = 6;
+$card[13] = 7;
+$card[14] = 7;
+$card[15] = 8;
+$card[16] = 8;
+$card[17] = 9;
+$card[18] = 9;
+$card[19] = 10;
+$card[20] = 10;
+$card[21] = 11;
+$card[22] = 11;
+$card[23] = 12;
+$card[24] = 12;
+$card[25] = 13;
