@@ -9,6 +9,7 @@
     <script type="text/javascript" src="bombMemory.js"></script>
 </head>
 <body>
+    <div><button id="startButton">Start</button></div>
     <div id="board"></div>
 </body>
 </html>

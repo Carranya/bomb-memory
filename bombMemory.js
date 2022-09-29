@@ -10,7 +10,7 @@ window.onload = function(){
         for(let r=0; r<rows; r++){
             let cards = document.createElement("img");
 
-            cards.setAttribute('src', 'img/' + tile + '.jpg')
+            cards.setAttribute('src', 'cards/' + tile + '.jpg')
             cards.setAttribute('class', 'classCards')
             cards.setAttribute('id', c + '' + r)
 
