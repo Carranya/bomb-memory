@@ -11,6 +11,7 @@
 <body>
     <div><button id="startButton">Start</button></div>
     <div id="board"></div>
+    <div id="show"></div>
 </body>
 </html>
 
