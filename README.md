@@ -1,2 +1,2 @@
 # buttonpuzzle
-A Mini Browser Puzzle Game
+A Mini Browser Memory Game
