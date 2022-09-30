@@ -58,10 +58,16 @@ window.onload = function(){
     function check(card1, card2){
         /*alert("Card1 :" + card1 + "/ Card2: " + card2);*/
         if(card1 == card2){
-            alert("Gratulation")
+            setTimeout(win, 100);
+
         } else {
             alert("Nichts");
         }
+    }
+
+    function win(){
+        alert("Gewonnen!");
+
     }
 /*    function getCard(e){
         for(let c=0; c<cols; c++){
