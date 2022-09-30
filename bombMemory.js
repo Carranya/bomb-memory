@@ -5,6 +5,7 @@ class pickCard{
         this.cardId2 = cardId2;
         this.card1 = card1;
         this.card2 = card2;
+        this.turns = 0;
 
        
     }
@@ -16,7 +17,7 @@ class pickCard{
             + "\ncard2: " + this.card2);*/
 
             if(this.card1 == this.card2){
-              setTimeout(this.show(), 100);
+              setTimeout(this.show(), 1000);
                let c1 = document.getElementById(this.cardId1);
                     c1.src = "cards/black.jpg";
                 let c2 = document.getElementById(this.cardId2);
@@ -31,10 +32,8 @@ class pickCard{
     }
 
     show(){
-        alert("cardId1: " + this.cardId1
-            + "\ncardId2: " + this.cardId2
-            + "\ncard1: " + this.card1
-            + "\ncard2: " + this.card2);
+        this.turns++;
+        document.getElementById("turns").innerHTML = this.turns;
     }
    
     

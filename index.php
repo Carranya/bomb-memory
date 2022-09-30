@@ -9,9 +9,8 @@
     <script type="text/javascript" src="bombMemory.js"></script>
 </head>
 <body>
-    <div><button id="startButton">Start</button></div>
     <div id="board"></div>
-    <div id="show"></div>
+    <div>Turns: <span id="turns">0</span></div>
 </body>
 </html>
 
