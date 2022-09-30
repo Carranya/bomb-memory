@@ -1,17 +1,22 @@
 class pickCard{
-    construct(cardId1, cardId2, card1, card2)
+    constructor(cardId1, cardId2, card1, card2)
     {
         this.cardId1 = cardId1;
         this.cardId2 = cardId2;
         this.card1 = card1;
         this.card2 = card2;
-      
+
+       
     }
 
     check(){
-            /*alert("Card1 :" + cardId1 + "/ Card2: " + cardId2);*/
+            /*alert("cardId1: " + this.cardId1
+            + "\ncardId2: " + this.cardId2
+            + "\ncard1: " + this.card1
+            + "\ncard2: " + this.card2);*/
+
             if(this.card1 == this.card2){
-                setTimeout("Gewonnen", 100);
+              setTimeout(this.show(), 100);
                let c1 = document.getElementById(this.cardId1);
                     c1.src = "cards/black.jpg";
                 let c2 = document.getElementById(this.cardId2);
@@ -25,11 +30,18 @@ class pickCard{
        
     }
 
-    win(){
-        alert("Gewonnen!");
-
+    show(){
+        alert("cardId1: " + this.cardId1
+            + "\ncardId2: " + this.cardId2
+            + "\ncard1: " + this.card1
+            + "\ncard2: " + this.card2);
     }
+   
+    
 }
+
+
+
 
 window.onload = function(){
 
@@ -86,7 +98,7 @@ window.onload = function(){
         } else {
             cardId2 = cardId;
             card2 = newCard;
-            let game = new pickCard(cardId1, cardId2, card1, card2);
+            const game = new pickCard(cardId1, cardId2, card1, card2);
             game.check();
             step--;
         }
