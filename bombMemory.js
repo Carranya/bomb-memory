@@ -1,142 +1,109 @@
-class pickCard{
-    constructor(cardId1, cardId2, card1, card2)
-    {
-        this.cardId1 = cardId1;
-        this.cardId2 = cardId2;
-        this.card1 = card1;
-        this.card2 = card2;
-        this.turns = 0;
-
-       
-    }
-
-    check(){
-            /*alert("cardId1: " + this.cardId1
-            + "\ncardId2: " + this.cardId2
-            + "\ncard1: " + this.card1
-            + "\ncard2: " + this.card2);*/
-
-            if(this.card1 == this.card2){
-              setTimeout(this.show(), 1000);
-               let c1 = document.getElementById(this.cardId1);
-                    c1.src = "cards/black.jpg";
-                let c2 = document.getElementById(this.cardId2);
-                    c2.src = "cards/black.jpg";
-    
-            } else {
-                alert("Nichts");
-            }
-        
-    
-       
-    }
-
-    show(){
-        this.turns++;
-        document.getElementById("turns").innerHTML = this.turns;
-    }
-   
-    
-}
 
 
-
-
-window.onload = function(){
+window.onload = function () {
 
     let cols = 5;
     let rows = 5;
     let tile = 1;
     let counterTile = 0;
     const setCards = {};
-    
+    const picType = ".jpg";
+    const cardBack = "25";
+    const emptyCard = "black";
+
+
     let step = 0;
     let card1;
     let card2;
     let cardId1;
     let cardId2;
+    let turns = 0;
+    let pair = 0;
+    const totalPair = 12;
 
-    for(let c=0; c<cols; c++){
-        for(let r=0; r<rows; r++){
+    // Start Game
+    for (let c = 0; c < cols; c++) {
+        for (let r = 0; r < rows; r++) {
             let cards = document.createElement("img");
             let setCardId = c + '' + r;
 
-            cards.setAttribute('src', 'cards/25.jpg')
+            cards.setAttribute('src', 'cards/' + cardBack + picType)
             cards.setAttribute('class', 'classCards')
             cards.setAttribute('id', setCardId)
 
             document.getElementById("board").append(cards);
 
             setCards[setCardId] = tile;
-            if (counterTile == 0){
+            if (counterTile == 0) {
                 counterTile++;
             } else {
                 tile++;
                 counterTile--;
             }
-           
+
         }
     }
 
-    for(let c=0; c<cols; c++){
-        for(let r=0; r<rows; r++){
+    // If player licked on card
+    for (let c = 0; c < cols; c++) {
+        for (let r = 0; r < rows; r++) {
             let id = c + '' + r;
-            document.getElementById(id).addEventListener("click", function(e){getCard(e)});
+            document.getElementById(id).addEventListener("click", function (e) { getCard(e) });
         }
     }
 
-    function getCard(e){
+
+
+
+    // Functions
+
+    function getCard(e) {
         let cardId = e.target.id;
-        let newCard = setCards[cardId] + ".jpg";
+        let newCard = setCards[cardId] + picType;
         e.target.src = "cards/" + newCard;
 
-        if(step == 0){
+        if (step == 0) {
             cardId1 = cardId;
             card1 = newCard;
             step++;
         } else {
             cardId2 = cardId;
             card2 = newCard;
-            const game = new pickCard(cardId1, cardId2, card1, card2);
-            game.check();
+            check(cardId1, cardId2, card1, card2);
             step--;
-        }
-
-    }
-   /* 
-    function check(cardId1, cardId2, card1, card2){
-        /*alert("Card1 :" + cardId1 + "/ Card2: " + cardId2);
-        if(card1 == card2){
-            setTimeout(win, 100);
-           let c1 = document.getElementById(cardId1);
-                c1.src = "cards/black.jpg";
-            let c2 = document.getElementById(cardId2);
-                c2.src = "cards/black.jpg";
-
-        } else {
-            alert("Nichts");
-        }
-    }
-
-    function win(){
-        alert("Gewonnen!");
-
-    }*/
-/*    function getCard(e){
-        for(let c=0; c<cols; c++){
-            for(let r=0; r<rows; r++){
-                let check = c + '' + r;
-                if(check == e.target.id){
-                    alert("check: " + check + "/ ID: " + e.target.id);
-                }
+            if (pair == totalPair) {
+                alert("You win!");
             }
         }
-    }*/
-/*
-    function show(e){
-        alert("ID: " + e.target.id + "\nPic: " + e.target.src);
-    }*/
+
+    }
+
+    function check(cardId1, cardId2, card1, card2) {
+        if (card1 == card2) {
+            setTimeout(function () { paired(cardId1, cardId2) }, 1000);
+
+        } else {
+            setTimeout(function () { notPaired(cardId1, cardId2) }, 1000);
+        }
+    }
+
+    function paired(cardId1, cardId2) {
+        let c1 = document.getElementById(cardId1);
+        c1.src = "cards/" + emptyCard + picType;
+        let c2 = document.getElementById(cardId2);
+        c2.src = "cards/" + emptyCard + picType;
+        turns++;
+        pair++;
+        document.getElementById("turns").innerHTML = turns;
+    }
+
+    function notPaired(cardId1, cardId2) {
+        let c1 = document.getElementById(cardId1);
+        c1.src = "cards/" + cardBack + picType;
+        let c2 = document.getElementById(cardId2);
+        c2.src = "cards/" + cardBack + picType;
+        turns++;
+        document.getElementById("turns").innerHTML = turns;
+    }
 
 }
-
-    
