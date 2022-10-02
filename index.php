@@ -10,7 +10,7 @@
 </head>
 <body>
     <div id="board"></div>
-    <div>Turns: <span id="turns">0</span></div>
+    <div id="idTurns">Turns: <span id="turns">0</span></div>
 </body>
 </html>
 
