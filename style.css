@@ -27,7 +27,7 @@ body {
     height: 100px;
 }
 
-#idTurns{
+.classTurns{
     font-weight: bold;
     font-size: 1.5em;
 }

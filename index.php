@@ -10,7 +10,8 @@
 </head>
 <body>
     <div id="board"></div>
-    <div id="idTurns">Turns: <span id="turns">0</span></div>
+    <div class="classTurns">Max turns: <span id="maxTurns"></span></div>
+    <div class="classTurns">Turns: <span id="turns">0</span></div>
 </body>
 </html>
 
