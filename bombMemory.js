@@ -23,6 +23,7 @@ window.onload = function () {
     const maxTurns = 30;
     let pair = 0;
     const totalPair = 12;
+    let deg = 0;
 
 
 
@@ -42,12 +43,16 @@ window.onload = function () {
 
     function getCard(e) {
         let cardId = e.target.id;
+
+        //if clicked on an empty field
         if (e.target.src != hostLink + emptyCard + picType) {
             let newCard = setCards[cardId] + picType;
             e.target.src = "cards/" + newCard;
 
+            //if clicked on bomb card
             if (e.target.src == hostLink + bombCard + picType) {
-                setTimeout(rotateBoard, 1000);
+                //setTimeout(rotateBoard, 1000);
+                setTimeout(loseGame, 1000);
             }
 
             if (step == 0) {
@@ -116,10 +121,12 @@ window.onload = function () {
     }
 
     function rotateBoard(id) {
-        board = document.getElementById("board");
-        let randdeg = Math.floor(Math.random() * 4);
-        let deg = ((randdeg * 90) + 90);
-        board.style.transform = "rotate(" + deg + "deg)";
+          board = document.getElementById("board");
+          let randdeg = Math.floor(Math.random() * 4);
+          let deg = ((randdeg * 90) + 90);
+          board.style.transform = "rotate(" + deg + "deg)";
+          /*deg = deg + 180;
+          board.style.transform = "rotateY(" + deg + "deg)";*/
     }
 
 
@@ -146,6 +153,8 @@ window.onload = function () {
 
         }
     }
+
+    document.getElementById("maxTurns").innerHTML = maxTurns;
 
 
     // If player clicked on card
