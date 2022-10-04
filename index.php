@@ -23,7 +23,7 @@
 
     <div id="loseGame" class="winLoseBox">
         <h1>You lose!</h1>
-        <p>Pairs: <span id="losePairs">0</span> / Turns: <span id="loseTurns">0</span></p>
+        <p>Pairs: <span id="losePairs">0</span> / Turns: <span id="loseTurns">0</span></p><br>
         <p><a href="index.php" class="newGame">New Game?</a></p>
     </div>
 </body>
