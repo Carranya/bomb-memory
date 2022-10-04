@@ -9,9 +9,23 @@
     <script type="text/javascript" src="bombMemory.js"></script>
 </head>
 <body>
+    <div id="header">Bomb Memory</div>
+
     <div id="board"></div>
-    <div class="classTurns">Max turns: <span id="maxTurns"></span></div>
-    <div class="classTurns">Turns: <span id="turns">0</span></div>
+    <br>
+    <div class="classTurns">Pairs: <span id="pairs">0</span> / Turns: <span id="turns">0</span></div>
+   
+    <div id="winGame" class="winLoseBox">
+        <h1>You win!</h1>
+        <p>Pairs: <span id="winPairs">0</span> / Turns: <span id="winTurns">0</span></p>
+        <p><a href="index.php" class="newGame">New Game?</a></p>
+    </div>
+
+    <div id="loseGame" class="winLoseBox">
+        <h1>You lose!</h1>
+        <p>Pairs: <span id="losePairs">0</span> / Turns: <span id="loseTurns">0</span></p>
+        <p><a href="index.php" class="newGame">New Game?</a></p>
+    </div>
 </body>
 </html>
 

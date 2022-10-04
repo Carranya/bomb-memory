@@ -4,15 +4,24 @@ body {
     text-align: center;
 }
 
+#header {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 2em;
+    color: red;
+    margin: 0.5em;
+}
+
+
 #board {
     width: 500px;
     height: 500px;
     border: 5px solid blueviolet;
     display: flex;
     flex-wrap: wrap;
-    margin: 0 0;
-    transform: rotate(0);
-    transition: transform 1s;
+    margin: auto auto;
+    /*transform: rotateY(0);
+    transition: transform 1s;*/
 }
 
 .classCards {
@@ -30,4 +39,27 @@ body {
 .classTurns{
     font-weight: bold;
     font-size: 1.5em;
+}
+
+.winLoseBox {
+    display: block;
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    width: 300px;
+    height: 200px;
+    border: 5px solid blueviolet;
+    background-color: lightgreen;
+    transform: translate(0, -3000px);
+    /* transform: translate(0, 0); */
+    transition: transform 1s;
+}
+
+.newGame {
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: bold;
+    border: 1px solid black;
+    padding: 0.5em;
+    margin: 0.5em;
 }
