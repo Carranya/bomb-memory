@@ -13,7 +13,7 @@
 
     <div id="board"></div>
     <br>
-    <div class="classTurns">Pairs: <span id="pairs">0</span> / Turns: <span id="turns">0</span></div>
+    <div class="classInfo">Pairs: <span id="pairs">0</span> / Turns: <span id="turns">0</span></div>
    
     <div id="winGame" class="winLoseBox">
         <h1>You win!</h1>
