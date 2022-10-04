@@ -4,7 +4,6 @@ window.onload = function () {
 
     let cols = 5;
     let rows = 5;
-    let board;
     const setCards = {};
     const countPic = {};
     const hostLink = "http://localhost/zody/bomb-memory/cards/";
@@ -20,10 +19,9 @@ window.onload = function () {
     let cardId1;
     let cardId2;
     let turns = 0;
-    const maxTurns = 30;
     let pair = 0;
     const totalPair = 12;
-    let deg = 0;
+    //let deg = 0;
 
 
 
@@ -52,6 +50,7 @@ window.onload = function () {
             //if clicked on bomb card
             if (e.target.src == hostLink + bombCard + picType) {
                 //setTimeout(rotateBoard, 1000);
+                //setTimeout(flipBoard, 1000);
                 setTimeout(loseGame, 1000);
             }
 
@@ -87,13 +86,13 @@ window.onload = function () {
         c2.src = "cards/" + emptyCard + picType;
         c2.setAttribute("class", "classEmptyCards");
         pair++;
+        document.getElementById("pairs").innerHTML = pair;
 
         if (pair == totalPair) {
             setTimeout(winGame, 100)
         }
 
         countTurns();
-        //rotateBoard();
     }
 
     function notPaired(cardId1, cardId2) {
@@ -107,27 +106,36 @@ window.onload = function () {
     function countTurns() {
         turns++;
         document.getElementById("turns").innerHTML = turns;
-        if (turns == maxTurns) {
-            loseGame();
-        }
     }
 
     function loseGame() {
-        alert("You lose");
+        //alert("You lose");
+        document.getElementById("loseTurns").innerHTML = turns;
+        document.getElementById("losePairs").innerHTML = pair;
+        let lose = document.getElementById("loseGame");
+        lose.style.transform = "translate(0, 0)";
     }
 
     function winGame() {
-        alert("You win");
+        //alert("You win");
+        document.getElementById("winTurns").innerHTML = turns;
+        document.getElementById("winPairs").innerHTML = pair;
+        let lose = document.getElementById("winGame");
+        lose.style.transform = "translate(0, 0)";
     }
 
-    function rotateBoard(id) {
-          board = document.getElementById("board");
+    /*
+    function rotateBoard() {
+          let board = document.getElementById("board");
           let randdeg = Math.floor(Math.random() * 4);
-          let deg = ((randdeg * 90) + 90);
+          deg = ((randdeg * 90) + 90);
           board.style.transform = "rotate(" + deg + "deg)";
-          /*deg = deg + 180;
-          board.style.transform = "rotateY(" + deg + "deg)";*/
     }
+
+    function flipBoard() {
+        deg = deg + 180;
+        board.style.transform = "rotateY(" + deg + "deg)";
+    }*/
 
 
 
@@ -153,9 +161,6 @@ window.onload = function () {
 
         }
     }
-
-    document.getElementById("maxTurns").innerHTML = maxTurns;
-
 
     // If player clicked on card
     for (let c = 0; c < cols; c++) {
