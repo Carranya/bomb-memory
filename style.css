@@ -1,6 +1,6 @@
 body {
     font-family: Verdana;
-    background-color: lightblue;
+    background-color: firebrick;
     text-align: center;
 }
 
@@ -8,7 +8,7 @@ body {
     font-weight: bold;
     font-style: italic;
     font-size: 2em;
-    color: red;
+    color: yellow;
     margin: 0.5em;
 }
 
@@ -16,7 +16,7 @@ body {
 #board {
     width: 500px;
     height: 500px;
-    border: 5px solid blueviolet;
+    border: 5px solid yellow;
     display: flex;
     flex-wrap: wrap;
     margin: auto auto;
@@ -36,9 +36,10 @@ body {
     height: 100px;
 }
 
-.classTurns{
+.classInfo{
     font-weight: bold;
     font-size: 1.5em;
+    color: yellow;
 }
 
 .winLoseBox {
