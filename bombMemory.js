@@ -146,8 +146,8 @@ window.onload = function () {
     }
     countPic[13] = 1;
 
-    for (let c = 0; c < cols; c++) {
-        for (let r = 0; r < rows; r++) {
+    for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
             let cards = document.createElement("img");
             let setCardId = c + '' + r;
 
@@ -163,8 +163,8 @@ window.onload = function () {
     }
 
     // If player clicked on card
-    for (let c = 0; c < cols; c++) {
-        for (let r = 0; r < rows; r++) {
+    for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
             let id = c + '' + r;
             document.getElementById(id).addEventListener("click", function (e) { getCard(e) });
         }
